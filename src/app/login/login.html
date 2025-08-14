@@ -1,0 +1,19 @@
+
+{{emp|json}}
+
+
+
+<h4 class="text text-info">Login Page!!!</h4>
+<h5 class="text text-danger">{{msg}}</h5>
+<div class="form-floating mb-3">
+  <input type="text" [(ngModel)]="name" class="form-control" id="floatingInput"
+   placeholder="Enter name">
+  <label for="floatingInput">Enter Name</label>
+</div>
+<div class="form-floating">
+  <input type="password" [(ngModel)]="password" class="form-control"
+   id="floatingPassword" placeholder="Enter Password">
+  <label for="floatingPassword">Enter Password</label>
+</div>
+
+<button (click)="authenticate()" class="btn btn-primary">Login</button>

@@ -1,0 +1,23 @@
+
+
+<h4 class="text text-info">Register Page!!!</h4>
+<h5 class="text text-danger">{{msg}}</h5>
+
+<div class="form-floating mb-3">
+  <input type="text" [(ngModel)]="id" class="form-control" id="floatingInput"
+   placeholder="Enter id">
+  <label for="floatingInput">Enter Id</label>
+</div>
+<div class="form-floating">
+  <input type="text" [(ngModel)]="name" class="form-control"
+   id="floatingPassword" placeholder="Enter Name">
+  <label for="floatingPassword">Enter Name</label>
+</div>
+
+<div class="form-floating">
+  <input type="text" [(ngModel)]="salary" class="form-control"
+   id="floatingPassword" placeholder="Enter Salary">
+  <label for="floatingPassword">Enter Salary</label>
+</div>
+
+<button (click)="register()" class="btn btn-primary">Login</button>
