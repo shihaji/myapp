@@ -6,6 +6,13 @@ import employeeList from './employeeUtil';
   providedIn:"root"
 })
 export class EmployeeService {
+
+
+  getAllEmp():Employee[]{
+
+    return employeeList;
+
+  }
   
 
   registerEmployee(emp:Employee):boolean{
