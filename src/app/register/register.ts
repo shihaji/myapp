@@ -15,10 +15,22 @@ export class Register {
   empService=inject(EmployeeService);
 
   id:number=0;
-  name:string="";
+  name!:string;
   salary!:number;
 
   msg="";
+
+  saveData(){
+
+    if(this.id>0 || this.name?.length>0||this.salary>0){
+      return confirm("You have unsaved data");
+    }else{
+      console.log("trueeeeeeeeeeeeeeee")
+      return true;
+    }
+
+  }
+
 
   register(){
 

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { EmployeeService } from '../employee-service';
+import Employee from '../employee';
 
 @Component({
   selector: 'app-display',
@@ -7,5 +9,17 @@ import { Component } from '@angular/core';
   styleUrl: './display.css'
 })
 export class Display {
+
+  empService=inject(EmployeeService);
+
+  empList!:Employee[];
+
+  ngOnInit(){
+
+    this.empList=this.empService.getAllEmp();
+    
+
+  }
+
 
 }

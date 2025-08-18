@@ -1,1 +1,25 @@
-<p>search works!</p>
+<h4>Search Page</h4>
+
+<div class="form-floating mb-3">
+  <input  [(ngModel)]="id" class="form-control" id="floatingInput"
+   placeholder="Enter id">
+  <label for="floatingInput">Enter Id</label>
+</div>
+<div>
+    <button (click)="search()" class="btn btn-primary">search</button>
+</div>
+
+@if (emp) {
+    <table class="table table-bordered">
+        <tr><th>ID</th>
+        <th>NAMe</th>
+    <th>SALARY</th></tr>
+    <tr>
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.salary}}</td>
+    </tr>
+    </table>
+}@else {
+    <h6 class="text text-danger">No Employee Found</h6>
+}

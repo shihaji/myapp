@@ -7,6 +7,12 @@ import employeeList from './employeeUtil';
 })
 export class EmployeeService {
 
+  searchEmployee(id:number):Employee|undefined{
+    console.log(id);
+    console.log(typeof(id)+ "   "+typeof(employeeList[0].id))
+    return employeeList.find(e=>e.id==id);
+   
+  }
 
   getAllEmp():Employee[]{
 
@@ -14,7 +20,6 @@ export class EmployeeService {
 
   }
   
-
   registerEmployee(emp:Employee):boolean{
     
     if(employeeList.find(e=>e.id===emp.id)){

@@ -1,1 +1,13 @@
-<p>display works!</p>
+<h4>Employee List</h4>
+
+<table class="table table-bordered">
+    <tr><th>ID</th><th>NAME</th><th>SALARY</th></tr>
+    @for (emp of empList; track emp.id) {
+
+        <tr>
+            <td>{{emp.id}}</td>
+             <td>{{emp.name}}</td>
+             <td>{{emp.salary}}</td>
+        </tr>
+    }
+</table>
