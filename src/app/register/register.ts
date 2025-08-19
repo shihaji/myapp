@@ -20,32 +20,31 @@ export class Register {
 
   msg="";
 
-  saveData(){
-
-    if(this.id>0 || this.name?.length>0||this.salary>0){
-      return confirm("You have unsaved data");
-    }else{
-      console.log("trueeeeeeeeeeeeeeee")
-      return true;
-    }
-
-  }
-
-
-  register(){
-
+register(){
 
     let flag=this.empService.registerEmployee
     (new Employee(this.id,this.name,this.salary));
-
     if(flag){
       this.msg="Employee registered"
     }else{
       this.msg="Employee already exist"
     }
   
+  }
+
+  saveData(){
+
+    if(this.id>0 || this.name?.length>0||this.salary>0){
+      return confirm("You have unsaved data");  // true or false
+    }else{
+    
+      return true;
+    }
 
   }
+
+
+  
 
 
 

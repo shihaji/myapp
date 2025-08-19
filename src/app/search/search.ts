@@ -11,13 +11,16 @@ import { FormsModule } from '@angular/forms';
 })
 export class Search {
 
+
+  ngOnInit(){
+    this.emp=""
+  }
   id:number=0;
   emp:any;
 
   empService=inject(EmployeeService);
 
   search(){
-    console.log("hello",typeof(this.id));
     this.emp=this.empService.searchEmployee(this.id);
 
   }

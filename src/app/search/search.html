@@ -9,17 +9,19 @@
     <button (click)="search()" class="btn btn-primary">search</button>
 </div>
 
-@if (emp) {
+@if(emp) {
     <table class="table table-bordered">
-        <tr><th>ID</th>
-        <th>NAMe</th>
-    <th>SALARY</th></tr>
+        <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>SALARY</th>
+    </tr>
     <tr>
         <td>{{emp.id}}</td>
         <td>{{emp.name}}</td>
         <td>{{emp.salary}}</td>
     </tr>
     </table>
-}@else {
+}@else{
     <h6 class="text text-danger">No Employee Found</h6>
 }

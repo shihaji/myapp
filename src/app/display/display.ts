@@ -15,11 +15,8 @@ export class Display {
   empList!:Employee[];
 
   ngOnInit(){
-
     this.empList=this.empService.getAllEmp();
-    
-
-  }
+   }
 
 
 }

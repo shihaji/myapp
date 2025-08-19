@@ -14,7 +14,7 @@ export const routes: Routes = [
     {path:"",component:Login},
     {path:"home",component:Home,canActivate:[loginGuard],children:[
         {path:"register",canDeactivate:[registerGuard],component:Register},
-        {path:"search",component:Search},
+        {path:"search",component:Search}, // eager loading
         {path:"delete",component:Delete},  
         {path:"display",loadComponent:()=>
         import('./display/display').then(result=>result.Display)}

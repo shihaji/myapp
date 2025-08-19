@@ -4,7 +4,9 @@ import { Register } from './register/register';
 export const registerGuard: CanDeactivateFn<Register> =
  (component:Register, currentRoute, currentState, nextState) => {
 
-  return component.saveData();
+  return component.saveData();  
+
+  
 
 
 };

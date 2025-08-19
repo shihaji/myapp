@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class Login{
 
- abc=inject(Loginservice);  //ang 14
+ loginService=inject(Loginservice);  //ang 14
  router=inject(Router);
 
   @Input()
@@ -29,7 +29,7 @@ export class Login{
   
   authenticate(){
     
-  if(this.abc.auth(new User(this.name,this.password))){
+  if(this.loginService.auth(new User(this.name,this.password))){
    this.router.navigateByUrl("home");
   }else{
     this.msg="Invalid name or password"
