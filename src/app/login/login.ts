@@ -29,11 +29,14 @@ export class Login{
   
   authenticate(){
     
-  if(this.loginService.auth(new User(this.name,this.password))){
-   this.router.navigateByUrl("home");
-  }else{
-    this.msg="Invalid name or password"
-  }
+
+   this.loginService.auth(new User(this.name,this.password))
+   .subscribe({
+    next:data=>this.router.navigateByUrl("home"),
+    error:err=>this.msg="Invalid name or password",
+    complete:()=>console.log("completed")  
+   })
+  
   
   }
 
