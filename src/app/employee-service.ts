@@ -10,10 +10,23 @@ import { Observable } from 'rxjs';
 export class EmployeeService {
 
   httpClient=inject(HttpClient);
+  url:string="http://localhost:5001/";
 
-  searchEmployee(id:number):Employee|undefined{
-    return employeeList.find(e=>e.id==id);
+
+  deleteEmp(id:number):Observable<{status:string}>{
+
+    let e={"id":id};
+
+    return this.httpClient.delete<{status:string}>
+    ("http://localhost:5001/deleteEmp",{body:e});
+
+  }
+
+  searchEmployee(id:number):Observable<Employee|string>{
    
+       return this.httpClient.get<Employee|string>
+       (`${this.url}searchEmp/${id}`)
+       
   }
 
   getAllEmp():Employee[]{
@@ -25,7 +38,7 @@ export class EmployeeService {
   registerEmployee(emp:Employee):Observable<{status:string}>{
 
    return this.httpClient.post<{status:string}>
-   ("http://localhost:5001/registerEmp",emp);
+   (`${this.url}registerEmp`,emp);
 
   }
 

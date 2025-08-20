@@ -9,7 +9,9 @@
     <button (click)="search()" class="btn btn-primary">search</button>
 </div>
 
-@if(emp) {
+{{emp.id}}
+
+@if(emp.id) {
     <table class="table table-bordered">
         <tr>
         <th>ID</th>
@@ -23,5 +25,5 @@
     </tr>
     </table>
 }@else{
-    <h6 class="text text-danger">No Employee Found</h6>
+    <h6 class="text text-danger">{{emp}}</h6>
 }

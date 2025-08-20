@@ -22,13 +22,12 @@ export class Register {
 
 register(){
 
-    let flag=this.empService.registerEmployee
-    (new Employee(this.id,this.name,this.salary));
-    if(flag){
-      this.msg="Employee registered"
-    }else{
-      this.msg="Employee already exist"
-    }
+    this.empService.registerEmployee
+    (new Employee(this.id,this.name,this.salary))
+    .subscribe({
+      next:data=>this.msg=data.status,
+      error:err=>this.msg=err.error.status
+    })
   
   }
 

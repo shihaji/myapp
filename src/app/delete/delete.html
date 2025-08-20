@@ -1,1 +1,12 @@
-<p>delete works!</p>
+<h4>Delete Page</h4>
+
+<div class="form-floating mb-3">
+  <input  [(ngModel)]="id" class="form-control" id="floatingInput"
+   placeholder="Enter id">
+  <label for="floatingInput">Enter Id</label>
+</div>
+<div>
+    <button (click)="delete()" class="btn btn-danger">delete</button>
+</div>
+
+<h4 class="text text-info">{{msg}}</h4>

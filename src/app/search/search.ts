@@ -10,18 +10,25 @@ import { FormsModule } from '@angular/forms';
   
 })
 export class Search {
-
-
+ 
   ngOnInit(){
-    this.emp=""
+    
+    this.emp="";
+    console.log('helo',this.emp);
   }
+
   id:number=0;
   emp:any;
 
   empService=inject(EmployeeService);
 
   search(){
-    this.emp=this.empService.searchEmployee(this.id);
+    
+    this.empService.searchEmployee(this.id)
+    .subscribe({
+      next:data=>{this.emp=data;console.log(data)},
+      error:err=>this.emp=err.error
+    })
 
   }
 
