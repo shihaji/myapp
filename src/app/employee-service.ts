@@ -29,9 +29,9 @@ export class EmployeeService {
        
   }
 
-  getAllEmp():Employee[]{
+  getAllEmp():Observable<Employee[]>{
 
-    return employeeList;
+    return this.httpClient.get<Employee[]>(`${this.url}listAll`);
 
   }
   

@@ -15,7 +15,8 @@ export class Display {
   empList!:Employee[];
 
   ngOnInit(){
-    this.empList=this.empService.getAllEmp();
+    this.empService.getAllEmp()
+    .subscribe(result=>this.empList=result);
    }
 
 
