@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { EmployeeService } from '../employee-service';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-delete',
@@ -12,13 +12,20 @@ import { ActivatedRoute } from '@angular/router';
 export class Delete {
 
    empService=inject(EmployeeService);
+   router=inject(Router);
 
    constructor(public activeRoute:ActivatedRoute){
 
     let id=this.activeRoute.snapshot.params['id'];
 
-    console.log(id);
-    
+    if(id){
+       this.empService.deleteEmp(id)
+    .subscribe({
+      next:data=>this.router.navigateByUrl("home/display"),
+      error:err=>this.msg=(err.error.status)
+    })
+    }
+
    }
 
    id:number=0;
