@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { EmployeeService } from '../employee-service';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-delete',
@@ -11,6 +12,14 @@ import { FormsModule } from '@angular/forms';
 export class Delete {
 
    empService=inject(EmployeeService);
+
+   constructor(public activeRoute:ActivatedRoute){
+
+    let id=this.activeRoute.snapshot.params['id'];
+
+    console.log(id);
+    
+   }
 
    id:number=0;
    msg:string=""

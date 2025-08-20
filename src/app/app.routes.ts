@@ -18,7 +18,9 @@ export const routes: Routes = [
         {path:"delete",component:Delete},  
         {path:"display",loadComponent:()=>
         import('./display/display').then(result=>result.Display)}
-    ]},                  // lazy loading of component
-    {path:"**",redirectTo:""}
+    ]},
+    {path:"home/display/delete/:id",component:Delete},
+    {path:"**",redirectTo:""}                
+   
 
 ];

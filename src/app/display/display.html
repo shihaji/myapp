@@ -1,13 +1,27 @@
 <h4>Employee List</h4>
 
+@if (empList20.error()) {
+ <p class="text text-danger">Server Error</p>
+}
+
+@if (empList20.isLoading()) {
+    <div class="spinner-border text-primary spinner-border-sm " role="status">
+ </div>
+}
+
+@if(empList20.hasValue()){
+
 <table class="table table-bordered">
     <tr><th>ID</th><th>NAME</th><th>SALARY</th></tr>
-    @for (emp of empList; track emp.id) {
+    @for (emp of empList20.value(); track emp.id) {
 
         <tr>
             <td>{{emp.id}}</td>
              <td>{{emp.name}}</td>
              <td>{{emp.salary}}</td>
+             <td><a routerLink="delete/{{emp.id}}">delete</a></td>
         </tr>
     }
 </table>
+
+}
