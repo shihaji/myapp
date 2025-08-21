@@ -4,7 +4,7 @@ import Employee from '../employee';
 import { Observable } from 'rxjs';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { httpResource } from '@angular/common/http';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-display',
@@ -18,16 +18,25 @@ export class Display {
 
   empList!:Employee[];
 
+  router=inject(Router);
+
   empList$!:Observable<Employee[]>;
 
   empList20=httpResource<Employee[]>
   (()=>"http://localhost:5001/listAll");
 
-   
 
+  deleteEmp(id:number){
+
+    if(confirm("sure")){
+    this.empService.deleteEmp(id)
+    .subscribe(result=>this.router.navigate(["home","display"]))
+    }
+  
+  }
+   
   ngOnInit(){
 
-     
 
     //this.empService.getAllEmp()
    // .subscribe(result=>this.empList=result);
