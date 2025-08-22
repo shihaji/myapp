@@ -1,6 +1,5 @@
 import { inject, Injectable } from '@angular/core';
 import Employee from './employee';
-import employeeList from './employeeUtil';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -18,7 +17,7 @@ export class EmployeeService {
     let e={"id":id};
 
     return this.httpClient.delete<{status:string}>
-    ("http://localhost:5001/deleteEmp",{body:e});
+    (`${this.url}deleteEmp`,{body:e});
 
   }
 

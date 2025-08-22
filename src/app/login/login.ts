@@ -1,14 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, inject, Input, model, OnInit, output, Output, SimpleChanges} 
 from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Loginservice } from '../loginservice';
 import User from '../user';
 import { Router } from '@angular/router';
+import { Namevalidator } from '../namevalidator';
+import { Namecheckvalid } from '../namecheckvalid';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,Namevalidator,Namecheckvalid],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
@@ -20,24 +22,25 @@ export class Login{
   @Input()
   emp:any;
 
-
-  name:string="";
-  password:string="";
   msg="";
   flag=model();
   name1=model();
   
-  authenticate(){
-    
+  authenticate(form:NgForm){
 
-   this.loginService.auth(new User(this.name,this.password))
-   .subscribe({
-    next:data=>this.router.navigateByUrl("home"),
-    error:err=>this.msg="Invalid name or password",
-    complete:()=>console.log("completed")  
-   })
-  
-  
+    console.log(form);
+   
+    let {name,password}=(form.value);
+
+  //      this.loginService.auth(new User(name,password))
+  //  .subscribe({
+  //   next:data=>this.router.navigateByUrl("home"),
+  //   error:err=>this.msg="Invalid name or password",
+  //   complete:()=>console.log("completed")  
+  //  })
+
+
+   
   }
 
 }

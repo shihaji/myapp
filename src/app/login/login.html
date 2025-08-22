@@ -1,19 +1,31 @@
 
 {{emp|json}}
 
-
-
 <h4 class="text text-info">Login Page!!!</h4>
 <h5 class="text text-danger">{{msg}}</h5>
+
+<form #loginForm="ngForm" (ngSubmit)="authenticate(loginForm)" >
+
 <div class="form-floating mb-3">
-  <input type="text" [(ngModel)]="name" class="form-control" id="floatingInput"
+  <input type="text" name="name" checkvalid Namevalid #name="ngModel"  required  ngModel class="form-control" id="floatingInput"
    placeholder="Enter name">
   <label for="floatingInput">Enter Name</label>
+  @if (name.errors?.['required'] && name.touched) {
+    <div class="text text-danger">Name is mandatory</div>
+  }
+  @if (name.errors?.['nameError'] && name.touched) {
+    <div class="text text-danger">min 3 and max 10 lower case</div>
+  }
+    @if (name.errors?.['noName'] && name.touched) {
+    <div class="text text-danger">No user found</div>
+  }
+   
 </div>
 <div class="form-floating mb-3">
-  <input type="password" [(ngModel)]="password" class="form-control"
+  <input type="password" name="password" ngModel class="form-control"
    id="floatingPassword" placeholder="Enter Password">
   <label for="floatingPassword">Enter Password</label>
 </div>
 
-<button (click)="authenticate()" class="btn btn-primary">Login</button>
+<input type="submit" class="btn btn-primary" value="login">
+</form>

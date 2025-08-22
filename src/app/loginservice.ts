@@ -10,9 +10,15 @@ import { Observable } from 'rxjs';
 export class Loginservice {
 
  httpClient= inject(HttpClient);
-
   flag=false;
-                          
+  checkName(name:string):Observable<{count:number}>{
+
+    return this.httpClient.get<{count:number}>
+    (`http://localhost:5001/checkName/${name}`)
+
+  }
+  
+
   auth(u:User):Observable<{status:boolean}>{
     this.flag=true;
    
