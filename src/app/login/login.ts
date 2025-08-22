@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class Login{
 
- loginService=inject(Loginservice);  //ang 14
+ loginService=inject(Loginservice);  
  router=inject(Router);
 
   @Input()

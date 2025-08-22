@@ -22,7 +22,7 @@ export class Delete {
         if(confirm("Are you sure")){
          this.empService.deleteEmp(this.id())
          .subscribe({
-         next:data=>this.router.navigateByUrl("home/display"),
+         next:data=>this.router.navigate(["delete",this.id()]),
          error:err=>this.msg=(err.error.status)
     })
     
