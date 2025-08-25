@@ -12,6 +12,12 @@ export class EmployeeService {
   url:string="http://localhost:5001/";
 
 
+  checkEmpId(id:number):Observable<{count:number}>{
+
+   return  this.httpClient.get<{count:number}>(`${this.url}checkId/${id}`);
+   
+  }
+
   deleteEmp(id:number):Observable<{status:string}>{
 
     let e={"id":id};
