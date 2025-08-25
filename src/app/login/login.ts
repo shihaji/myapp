@@ -28,16 +28,14 @@ export class Login{
   
   authenticate(form:NgForm){
 
-    console.log(form);
-   
     let {name,password}=(form.value);
 
-  //      this.loginService.auth(new User(name,password))
-  //  .subscribe({
-  //   next:data=>this.router.navigateByUrl("home"),
-  //   error:err=>this.msg="Invalid name or password",
-  //   complete:()=>console.log("completed")  
-  //  })
+       this.loginService.auth(new User(name,password))
+   .subscribe({
+    next:data=>this.router.navigateByUrl("home"),
+    error:err=>this.msg="Invalid name or password",
+    complete:()=>console.log("completed")  
+   })
 
 
    

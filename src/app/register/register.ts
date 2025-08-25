@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeService } from '../employee-service';
 import Employee from '../employee';
 
 @Component({
   selector: 'app-register',
-  imports: [FormsModule],
+  imports: [FormsModule,ReactiveFormsModule],
   templateUrl: './register.html',
   styleUrl: './register.css',
   
@@ -17,6 +17,22 @@ export class Register {
   id:number=0;
   name!:string;
   salary!:number;
+
+  regForm!:FormGroup;
+
+  constructor(public formBuilder:FormBuilder){
+    this.regForm=formBuilder.group({
+      id:[""],
+      name:[""],
+      salary:[""]
+    })
+  }
+
+
+  register1(){
+
+  }
+
 
   msg="";
 
