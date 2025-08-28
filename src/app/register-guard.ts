@@ -6,7 +6,5 @@ export const registerGuard: CanDeactivateFn<Register> =
 
   return component.saveData();  
 
-  
-
 
 };

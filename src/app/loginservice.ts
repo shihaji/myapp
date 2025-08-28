@@ -1,10 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import User from './user';
-import userList from './userList';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable({  // singleton
+@Injectable({  
   providedIn: 'root'
 })
 export class Loginservice {
@@ -29,4 +28,4 @@ export class Loginservice {
   
 }
 
-// employeeService  --skip-tests
+

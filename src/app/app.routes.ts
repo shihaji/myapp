@@ -20,7 +20,7 @@ export const routes: Routes = [
         import('./display/display').then(result=>result.Display)}
     ]},
     {path:"home/display/delete/:id",component:Delete},
-    {path:"**",redirectTo:""}                
+                
    
 
 ];
