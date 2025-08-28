@@ -29,13 +29,9 @@ export class DynamicRegister {
   regForm!:FormGroup;
 
   constructor(public formBuilder:FormBuilder){
-
     this.regForm=formBuilder.group({});
-
     for(let control of this.empFormControls){
-
       let errors=[];
-
       for(let [key,value] of Object.entries(control.validators)){
         
         console.log(control.name,"  ",key," ",value);
