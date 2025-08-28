@@ -1,0 +1,11 @@
+<p>dynamic-register works!</p>
+
+<form [formGroup]="regForm" (ngSubmit)="registerEmp()">
+@for (item of empFormControls; track $index) {
+
+    {{item.label}}
+    <input [type]="item.type" [formControlName]="item.name"
+     [value]="item.value" class="form-control">
+}
+<input type="submit" value="register" class="btn btn-primary">
+</form>

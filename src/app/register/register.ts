@@ -47,16 +47,16 @@ export class Register {
 
     console.log(this.regForm);
 
-    // let id=(this.regForm.get('id')?.value);
-    // let name=(this.regForm.get('name')?.value);
-    // let salary=(this.regForm.get('salary')?.value);
+    let id=(this.regForm.get('id')?.value);
+     let name=(this.regForm.get('name')?.value);
+     let salary=(this.regForm.get('salary')?.value);
 
-    //   this.empService.registerEmployee
-    // (new Employee(id,name,salary))
-    // .subscribe({
-    //   next:data=>this.msg=data.status,
-    //   error:err=>this.msg=err.error.status
-    // })
+       this.empService.registerEmployee
+     (new Employee(id,name,salary))
+     .subscribe({
+       next:data=>this.msg=data.status,
+       error:err=>this.msg=err.error.status
+     })
   }
 
 
