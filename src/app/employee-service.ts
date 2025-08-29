@@ -1,6 +1,6 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import Employee from './employee';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, httpResource } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,6 +10,14 @@ export class EmployeeService {
 
   httpClient=inject(HttpClient);
   url:string="http://localhost:5001/";
+
+  sid=signal<string>("0");
+
+  cities=httpResource<{id:number,name:string}[]>
+  (()=>`http://localhost:5001/cities/${this.sid()}`)
+
+  states=httpResource<{id:number,name:string}[]>
+  (()=>"http://localhost:5001/states")
 
 
   checkEmpId(id:number):Observable<{count:number}>{

@@ -1,0 +1,22 @@
+<p>states works!</p>
+
+<select class="form-select" [(ngModel)]="state" (change)="test($event)" >
+  <option value="" selected>Select State</option>
+  @for (state of states.value(); track state.id) {
+  <option [value]="state.id">{{state.name}}</option>
+  }
+
+</select>
+
+<br>
+
+<select class="form-select" [(ngModel)]="city" >
+  <option selected>Select City</option>
+  @for (city of cities.value(); track $index) {
+       <option [value]="city.id">{{city.name}}</option>
+  }
+ 
+</select>
+
+
+

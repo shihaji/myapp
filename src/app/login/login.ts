@@ -33,6 +33,7 @@ export class Login{
        this.loginService.auth(new User(name,password))
    .subscribe({
     next:data=>{
+      console.log(data.headers.get("Authorization"));
       localStorage.setItem("token",data.headers.get('Authorization'));
       this.router.navigateByUrl("home")
     },
