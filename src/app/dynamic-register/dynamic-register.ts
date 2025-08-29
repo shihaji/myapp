@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import formValidation from '../formValidation';
 
 @Component({
   selector: 'app-dynamic-register',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class DynamicRegister {
 
-  empFormControls=[
+  empFormControls:formValidation[]=[
     {name:"id",type:"text",label:"id",value:"",validators:{
       required:true,
       pattern:"[0-9]{3,10}"
@@ -32,20 +33,29 @@ export class DynamicRegister {
     this.regForm=formBuilder.group({});
     for(let control of this.empFormControls){
       let errors=[];
+
       for(let [key,value] of Object.entries(control.validators)){
         
         console.log(control.name,"  ",key," ",value);
         switch(key){
 
           case 'required': errors.push(Validators.required);break;
-          case 'pattern': errors.push(Validators.pattern(value));break;
-          case 'min':errors.push(Validators.min(value));break;
-          case 'max':errors.push(Validators.max(value));break;
+          case 'pattern': 
+          if(typeof(value)=='string')
+          errors.push(Validators.pattern(value));break;
+          case 'min':
+          if(typeof(value)=='number')  
+          errors.push(Validators.min(value));break;
+          case 'max':
+          if(typeof(value)=='number')  
+          errors.push(Validators.max(value));break;
           default: break;
 
         }
+
       }
 
+     
       this.regForm.addControl(control.name,
         this.formBuilder.control(control.value,errors))
 
@@ -54,6 +64,7 @@ export class DynamicRegister {
 
   registerEmp(){
     console.log(this.regForm);
+    console.log(this.regForm.value);
   }
 
 }

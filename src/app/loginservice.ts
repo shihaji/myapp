@@ -18,11 +18,11 @@ export class Loginservice {
   }
   
 
-  auth(u:User):Observable<{status:boolean}>{
+  auth(u:User):Observable<any>{
     this.flag=true;
    
-    return this.httpClient.post<{status:boolean}>
-    ("http://localhost:5001/authenticate",u);
+    return this.httpClient.post<any>
+    ("http://localhost:5001/authenticate",u,{observe:'response'});
        
   }
   

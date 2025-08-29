@@ -32,7 +32,10 @@ export class Login{
 
        this.loginService.auth(new User(name,password))
    .subscribe({
-    next:data=>this.router.navigateByUrl("home"),
+    next:data=>{
+      localStorage.setItem("token",data.headers.get('Authorization'));
+      this.router.navigateByUrl("home")
+    },
     error:err=>this.msg="Invalid name or password",
     complete:()=>console.log("completed")  
    })
